@@ -1,0 +1,37 @@
+
+header nav {
+    background-color: #292929;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 50px;
+    z-index: 1;
+}
+
+header .hero {
+    position: relative;
+}
+
+header .hero .hero-image {
+    width: 100vw;
+    height:550px;
+    object-position: center;
+    object-fit: cover;
+    overflow-x: scroll;
+    overflow: hidden;
+}
+
+header .hero .hero-text {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    color: #FFFFFF;
+    font-weight: 700;
+font-size: 72px;
+line-height: 94px;
+}

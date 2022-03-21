@@ -1,0 +1,16 @@
+
+.movies-container {
+    height: 350px;
+    width: 100%;
+}
+
+.movie-card {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow-x: scroll;
+    overflow: hidden;
+    gap: 10px;
+    text-align: center;
+    padding: 50px;
+}

@@ -2,65 +2,44 @@ import React from 'react'
 import { Card } from 'react-bootstrap';
 import { Loader } from '../loader/Loader';
 import './movie.css'
+import Slider from "react-slick";
 
 
 
 export const Movie = ({movies}) => {
 
     // filter and map movies by 
-    const filteredMovies = movies.filter(movie => {
-        if (localStorage.getItem('search')) {
-            return movie.Title.toLowerCase().includes(
-              localStorage.getItem("search").toLowerCase()
-            );
-        } else {
-            return movie
-        }
-    }).map(movie => {
+    const filteredMovies = movies.map(movie => {
         return (
-             <Card
-            style={{
-              width: "100%",
-              height: "150px",
-              backgroundColor: "#000000",
-              color: "#FFFFFF",
-            }}
-            key={movie.imdbID}
-          >
-            <Card.Body>
-              <Card.Text>{movie.Title}</Card.Text>
-            </Card.Body>
-          </Card>
-        )
-    });
+          <div className='cards d-flex align-items-center'>
+            <Card key={movie.imdbID}>
+              <Card.Body>
+                <Card.Text>Title: {movie.Title}</Card.Text>
+                <Card.Text>Year: {movie.Year}</Card.Text>
+                <Card.Text>Type: {movie.Type}</Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+        );
+    })                                          
 
-    // run filtermovies if localstorage get updated
-   React.useEffect(() => {
-     function checkUserData() {
-       const item = localStorage.getItem("userData");
+    // settings for slider
+      const settings = {
+        infinite: true,
+        speed: 500,
+        slidesToShow: 5,
+        slidesToScroll: 3,
+      };
 
-       if (item) {
-         filteredMovies(item);
-       }
-     }
-
-     window.addEventListener("storage", checkUserData);
-
-     return () => {
-       window.removeEventListener("storage", checkUserData);
-     };
-   }, []);
-
-   
-
+      if (movies.length === 0) {
+        return <Loader />;
+      }
   return (
-    <div className='container mt-3'>
+    <div className='container-fluid mt-3'>
       <div className='movies-container'>
         <br />
         <span className='text-muted ms-5 fw-bold'>Movies</span>
-        <div className='movie-card pt-0 mt-0'>
-          {movies.length > 0 ? filteredMovies : <Loader />}
-        </div>
+        <Slider {...settings}>{filteredMovies}</Slider>
       </div>
     </div>
   );

@@ -1,16 +1,13 @@
 
-.movies-container {
-    height: 350px;
-    width: 100%;
+
+
+.card {
+    height: 250px !important;
+    width: 100%!important;
+    gap: 20px !important;
+    margin: 10px !important;
+    background-color: #000000 !important;
+    border-radius: 10px !important;
+    color: #ffffffff !important;
 }
 
-.movie-card {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    overflow-x: scroll;
-    overflow: hidden;
-    gap: 10px;
-    text-align: center;
-    padding: 50px;
-}

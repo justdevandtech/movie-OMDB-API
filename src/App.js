@@ -9,7 +9,6 @@ function App() {
     <>
       <Header />
       <Container fluid>
-        <SearchBar />
         <MovieList />
       </Container>
     </>
